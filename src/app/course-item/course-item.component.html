@@ -1,0 +1,26 @@
+<!-- Card -->
+<div class="card  text-center">
+
+  <!-- Card image -->
+  <div class="view overlay">
+    <img src="{{course.logoPath}}" class="img-responsive" width="200" alt="Card image cap"/>
+    <a href="#!">
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+
+  <!-- Card content -->
+  <div class="card-body">
+
+    <!-- Title -->
+    <h4 class="card-title">{{course.courseName}}</h4>
+    <!-- Button -->
+    <div class="row d-flex justify-content-center">
+      <button class="col-md-4 btn btn-primary m-2">More</button>
+      <button class="col-md-4 btn btn-danger m-2" (click)="deleteCourse()"> Delete</button>
+    </div>
+
+  </div>
+
+</div>
+<!-- Card -->

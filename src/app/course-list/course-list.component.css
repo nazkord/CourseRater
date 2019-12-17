@@ -1,0 +1,7 @@
+.zebra:nth-child(even) {
+    background-color: #929292;
+}
+
+.zebra:nth-child(odd) {
+    background-color: #c8c8c8;
+}
