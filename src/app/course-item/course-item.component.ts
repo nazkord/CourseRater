@@ -9,6 +9,8 @@ import { EventEmitter } from '@angular/core';
 })
 export class CourseItemComponent implements OnInit {
 
+  isClicked: boolean = false;
+
   @Input() course : Course;
   @Output() deleteCourseClicked = new EventEmitter<Course>();
 
@@ -19,6 +21,10 @@ export class CourseItemComponent implements OnInit {
 
   deleteCourse() {
     this.deleteCourseClicked.emit(this.course);
+  }
+
+  showHideDetails() {
+    this.isClicked = !this.isClicked;
   }
 
 }
