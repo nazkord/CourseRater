@@ -5,6 +5,11 @@ export enum ClassForm {
     PROJECT
 }
 
+export interface RatingValues {
+    rating: 1 | 2 | 3 | 4 | 5;
+    // studentId: string;
+}
+
 export interface Course {
     id: number;
     courseName: string;
@@ -12,7 +17,7 @@ export interface Course {
     semester: number;
     courseForm: ClassForm;
     maxNumberOfStudent: number;
-    rate: number;
+    rate: RatingValues[];
     logoPath: string;
     description: string;
 }

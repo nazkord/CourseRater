@@ -26,5 +26,4 @@ export class CourseItemComponent implements OnInit {
   showHideDetails() {
     this.isClicked = !this.isClicked;
   }
-
 }

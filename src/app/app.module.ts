@@ -7,6 +7,7 @@ import { CourseItemComponent } from './course-item/course-item.component';
 import { CourseListComponent } from './course-list/course-list.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CourseDetailsComponent } from './course-details/course-details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CourseDetailsComponent } from './course-details/course-details.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgbModule,
     MDBBootstrapModule.forRoot()
   ],
   providers: [],
