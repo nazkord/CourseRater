@@ -15,4 +15,15 @@ export class CourseDetailsComponent implements OnInit {
   ngOnInit() {
   }
 
+  courseRating(): number {
+    let sum = 0;
+    let counter = 0;
+    this.course.rate.forEach(element => {
+      counter++;
+      sum += element.rating;
+    });
+    if (sum === 0 ) { return 0; }
+    return Math.round((sum / counter) * 10) / 10;
+  }
+
 }

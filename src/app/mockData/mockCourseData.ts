@@ -12,7 +12,7 @@ export class MockCourseData {
         'semester': 2,
         'courseForm': ClassForm.EXERCISE,
         'maxNumberOfStudent': 80,
-        'rate': [{rating:3}, {rating:5}],
+        'rate': [{rating:3}, {rating:4}],
         'logoPath' : 'https://media.istockphoto.com/vectors/cute-bunting-flags-for-english-language-day-vector-id667311368',
         'description': 'This is an example description of a course'
     },
@@ -56,7 +56,7 @@ export class MockCourseData {
         'semester': 3,
         'courseForm': ClassForm.LAB,
         'maxNumberOfStudent': 80,
-        'rate': [{rating:3}, {rating:5}],
+        'rate': [{rating:3}, {rating:1}],
         'logoPath' : 'https://www.computerworld.pl/g1/news/thumbnails/2/8/281568_java_logo_jpg_90_resize_770x1000.jpg',
         'description': 'This is an example description of a course'
     },
@@ -78,7 +78,7 @@ export class MockCourseData {
         'semester': 3,
         'courseForm': ClassForm.EXERCISE,
         'maxNumberOfStudent': 80,
-        'rate': [{rating:3}, {rating:5}],
+        'rate': [{rating:2}, {rating:5}],
         'logoPath' : 'https://www.instantassignmenthelp.com/images/data/page_upload/images/physics.jpeg',
         'description': 'This is an example description of a course'
     },
@@ -89,7 +89,7 @@ export class MockCourseData {
         'semester': 3,
         'courseForm': ClassForm.LAB,
         'maxNumberOfStudent': 50,
-        'rate': [{rating:3}, {rating:5}],
+        'rate': [{rating:3}, {rating:4}],
         'logoPath' : 'https://pixfeeds.com/images/topic/4144/1200-4144-databases-photo3.jpg',
         'description': 'This is an example description of a course'
     },
