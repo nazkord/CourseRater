@@ -8,13 +8,15 @@ import { CourseListComponent } from './course-list/course-list.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CourseItemComponent,
     CourseListComponent,
-    CourseDetailsComponent
+    CourseDetailsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
