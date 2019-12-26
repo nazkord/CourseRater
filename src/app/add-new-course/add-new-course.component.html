@@ -1,19 +1,36 @@
-<form [formGroup]="formOfCourse" novalidate>
+<form class="m-3" [formGroup]="formOfCourse" novalidate>
+        <!-- 'has-danger':formOfCourse.controls.courseName.invalid -->
     <div class="form-group">
         <label class="float-left">Course name:</label>
-        <input formControlName="courseName" placeholder="Enter the name of course" class="form-control" type="text">
+        <input class="form-control" [ngClass]="{
+            'is-valid':courseName.valid && courseName.dirty,
+            'is-invalid':courseName.invalid && courseName.dirty
+        }"
+        formControlName="courseName" placeholder="Enter the name of course" type="text">
     </div>
     <div class="form-group">
-        <label class="float-left">ECTS:</label>
-        <input formControlName="ects" type="range" class="form-control custom-range" min="0" max="15" step="1">
+        <label class="float-left">ECTS: {{ects.value}}</label>
+        <input formControlName="ects" [ngClass]="{
+            'is-valid': ects.valid && ects.dirty,
+            'is-invalid': ects.invalid && ects.dirty
+        }"
+        type="range" class="form-control custom-range" min="0" max="15" step="1">
     </div>
     <div class="form-group">
         <label class="float-left">Semester:</label>
-        <input formControlName="semester" placeholder="Enter the semester" class="form-control" type="text">
+        <input formControlName="semester" [ngClass]="{
+            'is-valid': semester.valid && semester.dirty,
+            'is-invalid': semester.invalid && semester.dirty
+        }"
+        placeholder="Enter the semester" class="form-control" type="number">
     </div>
     <div class="form-group">
         <label>Max number of students:</label>
-        <input formControlName="maxNumberOfStudent" placeholder="Max Students" class="form-control" type="number">
+        <input formControlName="maxNumberOfStudent" [ngClass]="{
+            'is-valid': maxNumberOfStudent.valid && maxNumberOfStudent.dirty,
+            'is-invalid': maxNumberOfStudent.invalid && maxNumberOfStudent.dirty
+        }"
+        placeholder="Max Students" class="form-control" type="number">
     </div>
     <div class="form-group">
         <label>Form of the course:</label>
@@ -24,11 +41,19 @@
     </div>
     <div class="form-group">
         <label class="float-left">Description</label>
-        <textarea formControlName="description" class="form-control" placeholder="Opis Kursu" ref-textarea rows="4" cols="20"></textarea>
+        <textarea formControlName="description" [ngClass]="{
+            'is-valid': description.valid && description.dirty,
+            'is-invalid': description.invalid && description.dirty
+        }"
+        class="form-control" placeholder="Opis Kursu" ref-textarea rows="4" cols="20"></textarea>
     </div>
     <div class="form-group">
         <label class="float-left">Logo's URL</label>
-        <input formControlName="logoPath" placeholder="Path the url of logo" type="text">
+        <input formControlName="logoPath" [ngClass]="{
+            'is-valid': semester.logoPath && logoPath.dirty,
+            'is-invalid': logoPath.invalid && logoPath.dirty
+        }"
+        placeholder="Path the url of logo" type="text">
     </div>
 </form>
 <!-- <div class="submit">
