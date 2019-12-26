@@ -1,5 +1,4 @@
 <form class="m-3" [formGroup]="formOfCourse" novalidate>
-        <!-- 'has-danger':formOfCourse.controls.courseName.invalid -->
     <div class="form-group">
         <label class="float-left">Course name:</label>
         <input class="form-control" [ngClass]="{
@@ -40,7 +39,11 @@
     </div>
     <div class="form-group">
         <label>Form of the course:</label>
-        <select formControlName="courseForm" class="form-control">
+        <select formControlName="courseForm" [ngClass]="{
+            'is-valid': courseForm.valid && courseForm.dirty,
+            'is-invalid': courseForm.invalid && courseForm.dirty
+        }"
+        class="form-control">
                 <option value="">Select form of the course:</option>
                 <option *ngFor="let courseType of courseTypes">{{courseType}}</option>
         </select>
@@ -65,17 +68,11 @@
                 <p *ngIf="logoPath.errors.pattern">Bad URL</p>
         </div>
     </div>
+    <div class="submit">
+            <hr>
+            <a *ngIf="formOfCourse.valid" class="btn btn-secondary text-white" (click)="addCourse()">Save</a>
+            <div class="text-red" *ngIf="formOfCourse.invalid && formOfCourse.dirty">
+                    Check out your errors!
+            </div>
+    </div>
 </form>
-<!-- <div class="submit">
-        <hr>
-        <a  class="btn btn-secondary text-white" (click)="addCourse()">Save</a>
-        <div class="error" *ngIf="err">
-                Wypałnij formularz poprawnie!
-        </div>
-        <div class="good" *ngIf="good && param1 === null">
-                Dodano kurs.
-        </div>
-        <div class="good" *ngIf="good && param1">
-                Dodano zmiany.
-        </div>
-</div> -->

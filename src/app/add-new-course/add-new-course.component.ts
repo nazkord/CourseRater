@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, Form } from '@angular/forms';
 import { Course, ClassForm } from '../model/course';
+import { CourseService } from '../course-service/course-service.service';
 
 @Component({
   selector: 'app-add-new-course',
@@ -20,7 +21,7 @@ export class AddNewCourseComponent implements OnInit {
   description: FormControl;
   logoPath: FormControl; 
 
-  constructor() { }
+  constructor(private courseService: CourseService) { }
 
   ngOnInit() {
     this.emptyCourse();
@@ -43,14 +44,14 @@ export class AddNewCourseComponent implements OnInit {
       this.semester = new FormControl(
         '', [
           Validators.required,
-          Validators.min(0),
+          Validators.min(1),
           Validators.max(15)
         ]
       ),
       this.maxNumberOfStudent = new FormControl(
         '', [
           Validators.required,
-          Validators.min(0)
+          Validators.min(1)
         ]
       ),
       this.courseForm = new FormControl(
@@ -95,6 +96,22 @@ export class AddNewCourseComponent implements OnInit {
       logoPath: null,
       description: null
     }
+  }
+
+  addCourse() {
+    this.fillOutCourse();
+    this.courseService.addCourse(this.newCourse);
+  }
+
+  fillOutCourse() {
+    this.newCourse.id = new Date().getTime();
+    this.newCourse.courseName = this.courseName.value;
+    this.newCourse.ects = this.ects.value;
+    this.newCourse.semester = this.semester.value;
+    this.newCourse.courseForm = this.courseForm.value;
+    this.newCourse.maxNumberOfStudent = this.maxNumberOfStudent.value;
+    this.newCourse.logoPath = this.logoPath.value;
+    this.newCourse.description = this.description.value;
   }
 
 }
