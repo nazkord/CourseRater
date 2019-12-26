@@ -7,6 +7,9 @@
             'is-invalid':courseName.invalid && courseName.dirty
         }"
         formControlName="courseName" placeholder="Enter the name of course" type="text">
+        <div class="invalid-feedback" *ngIf="courseName.invalid && courseName.dirty">
+            <p>Course name is required</p>
+        </div>
     </div>
     <div class="form-group">
         <label class="float-left">ECTS: {{ects.value}}</label>
@@ -23,6 +26,9 @@
             'is-invalid': semester.invalid && semester.dirty
         }"
         placeholder="Enter the semester" class="form-control" type="number">
+        <div class="invalid-feedback" *ngIf="semester.invalid && semester.dirty">
+                <p>The number should be beetwen 0 and 15</p>
+        </div>
     </div>
     <div class="form-group">
         <label>Max number of students:</label>
@@ -45,15 +51,19 @@
             'is-valid': description.valid && description.dirty,
             'is-invalid': description.invalid && description.dirty
         }"
-        class="form-control" placeholder="Opis Kursu" ref-textarea rows="4" cols="20"></textarea>
+        class="form-control" placeholder="Opis Kursu" ref-textarea rows="2" cols="20"></textarea>
     </div>
     <div class="form-group">
-        <label class="float-left">Logo's URL</label>
+        <label class="float-left">Logo's URL: </label>
         <input formControlName="logoPath" [ngClass]="{
-            'is-valid': semester.logoPath && logoPath.dirty,
+            'is-valid': logoPath.valid && logoPath.dirty,
             'is-invalid': logoPath.invalid && logoPath.dirty
         }"
-        placeholder="Path the url of logo" type="text">
+        placeholder="Path the url of logo" class="form-control">
+        <div class="invalid-feedback" *ngIf="logoPath.errors && logoPath.dirty">
+                <p *ngIf="logoPath.errors.required">URL is required</p>
+                <p *ngIf="logoPath.errors.pattern">Bad URL</p>
+        </div>
     </div>
 </form>
 <!-- <div class="submit">
