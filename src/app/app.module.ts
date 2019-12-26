@@ -9,6 +9,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AddNewCourseComponent } from './add-new-course/add-new-course.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,14 @@ import { NavbarComponent } from './navbar/navbar.component';
     CourseItemComponent,
     CourseListComponent,
     CourseDetailsComponent,
-    NavbarComponent
+    NavbarComponent,
+    AddNewCourseComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     NgbModule,
     MDBBootstrapModule.forRoot()
   ],
