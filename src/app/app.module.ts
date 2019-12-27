@@ -11,6 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AddNewCourseComponent } from './add-new-course/add-new-course.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FilterCoursesComponent } from './filter-courses/filter-courses.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CourseListComponent,
     CourseDetailsComponent,
     NavbarComponent,
-    AddNewCourseComponent
+    AddNewCourseComponent,
+    FilterCoursesComponent
   ],
   imports: [
     BrowserModule,
