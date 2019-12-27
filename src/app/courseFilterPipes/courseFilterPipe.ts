@@ -5,19 +5,24 @@ import { CourseFilter } from './courseFilter';
 @Pipe({name: 'searchPipe'})
 export class CourseFilterPipe implements PipeTransform {
     transform(courses: Course[], filter: CourseFilter ) : Course[] {
-        console.log("MAINCHECK");
+
         if(!courses) {
-            console.log("CHECK1");
             return [];
         }
+
         if(!filter) {
-            console.log("CHECK2");
             return courses;
         }
-        console.log("CHECK");
-        return null;
-        // return courses.filter(course => {
-        //     return course.ects === search;
-        // })
+
+        if(filter.name) {
+            courses = courses.filter(course => 
+                course.courseName.toUpperCase().includes(filter.name.toUpperCase()));
+        }
+
+        if(filter.ects || filter.ects === 0) {
+            courses = courses.filter(course => course.ects === filter.ects)
+        }
+
+        return courses;
     }
 }

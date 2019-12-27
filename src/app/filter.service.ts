@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
 import { CourseFilter } from './courseFilterPipes/courseFilter'
-import { Observable, of, BehaviorSubject, Subject } from 'rxjs';
-import { CourseFilterPipe } from './courseFilterPipes/courseFilterPipe';
+import { Observable, BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilterService {
-  private filters = new BehaviorSubject<CourseFilter>(null);
+  private filters = new Subject<any>();
 
   constructor() {}
 
-  getFilters() : Observable<CourseFilter> {
+  getFilters() : Observable<any> {
     return this.filters.asObservable();
   }
 
