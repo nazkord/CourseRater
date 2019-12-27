@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core';
 import { CourseFilter } from './courseFilterPipes/courseFilter'
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject, Subject } from 'rxjs';
+import { CourseFilterPipe } from './courseFilterPipes/courseFilterPipe';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilterService {
-  private filters: CourseFilter;
+  private filters = new BehaviorSubject<CourseFilter>(null);
+
+  constructor() {}
 
   getFilters() : Observable<CourseFilter> {
-    return of(this.filters);
+    return this.filters.asObservable();
   }
 
   saveFilters(courseFilters: CourseFilter): void {
-    this.filters = courseFilters;
-    console.log(courseFilters.name);
-    console.log(courseFilters.ects);
+    this.filters.next(courseFilters);
   }
-
-  constructor() { }
 }

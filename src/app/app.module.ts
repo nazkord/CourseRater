@@ -12,6 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AddNewCourseComponent } from './add-new-course/add-new-course.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterCoursesComponent } from './filter-courses/filter-courses.component';
+import { CourseFilterPipe } from './courseFilterPipes/courseFilterPipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FilterCoursesComponent } from './filter-courses/filter-courses.componen
     CourseDetailsComponent,
     NavbarComponent,
     AddNewCourseComponent,
-    FilterCoursesComponent
+    FilterCoursesComponent,
+    CourseFilterPipe
   ],
   imports: [
     BrowserModule,

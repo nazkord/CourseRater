@@ -14,7 +14,7 @@ export class CourseService {
   constructor() { }
 
   getCourses(): Observable<Course[]> {
-    return of(MockCourseData.Courses);
+    return of(this.courses);
   }
 
   getCourse(id: number): Observable<Course> {
