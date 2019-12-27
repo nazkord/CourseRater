@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from '../course-service/course-service.service';
 import { Course } from '../model/course';
+import { FilterService } from '../filter.service';
+import { CourseFilter } from '../courseFilterPipes/courseFilter';
 
 @Component({
   selector: 'app-course-list',
@@ -10,12 +12,19 @@ import { Course } from '../model/course';
 export class CourseListComponent implements OnInit {
 
   private courses: Course[];
+  private filters: CourseFilter;
 
   ngOnInit() {
     this.getCourses();
+    this.getFilters();
   }
 
-  constructor(private courseService: CourseService) {}
+  constructor(private courseService: CourseService, private filterService: FilterService) {}
+
+  getFilters(): void {
+    this.filterService.getFilters()
+      .subscribe(filters => this.filters = filters);
+  }
 
   getCourses(): void {
     this.courseService.getCourses()

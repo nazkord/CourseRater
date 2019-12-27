@@ -8,28 +8,18 @@ import { FilterService } from '../filter.service';
   styleUrls: ['./filter-courses.component.css']
 })
 export class FilterCoursesComponent implements OnInit {
-  courseName : string;
-  ects: number;
-  semester: number;
   filters: CourseFilter = {
-    name: this.courseName,
-    ects: this.ects,
-    semester: this.semester
+    name: null,
+    ects: null,
+    semester: null
   }
 
   constructor(private filterService: FilterService) { }
 
   ngOnInit() {
   }
-
-  updateFilters(): void {
-    this.filters.name = this.courseName;
-    this.filters.ects = this.ects;
-    this.filters.semester = this.semester;
-  }
-
-  sendFilter() : void {
-    this.updateFilters();
+  
+  sendFilters() : void {
     this.filterService.saveFilters(this.filters);
   }
 }

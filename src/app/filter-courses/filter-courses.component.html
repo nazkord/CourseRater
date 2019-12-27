@@ -1,13 +1,13 @@
 <div class="m-3">
     <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search By Name"
-            [(ngModel)]="courseName"/>
+        <input type="text" class="form-control" placeholder="Search By Name" 
+            [(ngModel)]="filters.name" (input)="sendFilters()" />
     </div>
     <p>{{filters.name}}</p>
     <div class="form-group">
-        <label class="float-left">Search By ECTS: {{ects}}</label>
+        <label class="float-left">Search By ECTS: {{filters.ects}}</label>
         <input type="range" class="form-control custom-range" min="0" max="15" step="1" 
-            [(ngModel)]="ects"/>
+            [(ngModel)]="filters.ects"  (input)="sendFilters()" />
     </div>
 </div>
 

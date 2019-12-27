@@ -14,6 +14,8 @@ export class FilterService {
 
   saveFilters(courseFilters: CourseFilter): void {
     this.filters = courseFilters;
+    console.log(courseFilters.name);
+    console.log(courseFilters.ects);
   }
 
   constructor() { }
