@@ -10,8 +10,6 @@ export class SemesterFilter implements PipeTransform {
         if(!search) {
             return courses;
         }
-        return courses.filter(course => {
-            return course.semester === search;
-        })
+        return courses.filter(course => course.semester === search);
     }
 }

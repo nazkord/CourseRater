@@ -8,6 +8,11 @@
         <input type="range" class="form-control custom-range" min="0" max="15" step="1" 
             [(ngModel)]="filters.ects"  (input)="sendFilters()" />
     </div>
+    <div class="form-group">
+            <label class="float-left">Search By Semester: {{filters.semester}}</label>
+            <input type="range" class="form-control custom-range" min="0" max="15" step="1" 
+                [(ngModel)]="filters.semester"  (input)="sendFilters()" />
+        </div>
 </div>
 
 

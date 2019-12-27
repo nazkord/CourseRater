@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterCoursesComponent } from './filter-courses/filter-courses.component';
 import { CourseFilterPipe } from './courseFilterPipes/courseFilterPipe';
 import { CourseFilterImpurePipe } from './courseFilterPipes/CourseFilterImpurePipe';
+import { SemesterFilter } from './courseFilterPipes/semesterFilter';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CourseFilterImpurePipe } from './courseFilterPipes/CourseFilterImpurePi
     AddNewCourseComponent,
     FilterCoursesComponent,
     CourseFilterPipe,
-    CourseFilterImpurePipe
+    CourseFilterImpurePipe,
+    SemesterFilter
   ],
   imports: [
     BrowserModule,
