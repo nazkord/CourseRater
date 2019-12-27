@@ -1,1 +1,14 @@
-<p>filter-courses works!</p>
+<div class="m-3">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search By Name"
+            [(ngModel)]="courseName"/>
+    </div>
+    <p>{{filters.name}}</p>
+    <div class="form-group">
+        <label class="float-left">Search By ECTS: {{ects}}</label>
+        <input type="range" class="form-control custom-range" min="0" max="15" step="1" 
+            [(ngModel)]="ects"/>
+    </div>
+</div>
+
+
