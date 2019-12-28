@@ -40,19 +40,22 @@ export class FilterCoursesComponent implements OnInit {
   }
 
   updateSemester(semesterNumber:number, isChecked: boolean) {
-    let newFilters: CourseFilter = {
-      name: this.filters.name,
-      ects: this.filters.ects,
-      semester: this.filters.semester
-    }
     if(isChecked) {
-      newFilters.semester.push(semesterNumber);
+      this.filters.semester.push(semesterNumber);
     } else {
-      let index = newFilters.semester.indexOf(semesterNumber);
-      newFilters.semester.splice(index,1);
+      let index = this.filters.semester.indexOf(semesterNumber);
+      this.filters.semester.splice(index,1);
     }
-    console.log("LOL2 " + newFilters.semester.length);
-    this.filters = newFilters;
+    this.sendFilters();
+  }
+
+  updateEcts(ectsNumber:number, isChecked: boolean) {
+    if(isChecked) {
+      this.filters.ects.push(ectsNumber);
+    } else {
+      let index = this.filters.ects.indexOf(ectsNumber);
+      this.filters.ects.splice(index,1);
+    }
     this.sendFilters();
   }
 }

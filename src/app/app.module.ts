@@ -13,7 +13,8 @@ import { AddNewCourseComponent } from './add-new-course/add-new-course.component
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterCoursesComponent } from './filter-courses/filter-courses.component';
 import { CourseFilterImpurePipe } from './courseFilterPipes/CourseFilterImpurePipe';
-import { SemesterFilterImpurePipe } from './courseFilterPipes/semesterFilterImpurePipe'
+import { SemesterFilterImpurePipe } from './courseFilterPipes/semesterFilterImpurePipe';
+import { EctsFilterImpurePipe } from './courseFilterPipes/ectsFilterImpurePipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SemesterFilterImpurePipe } from './courseFilterPipes/semesterFilterImpu
     AddNewCourseComponent,
     FilterCoursesComponent,
     CourseFilterImpurePipe,
-    SemesterFilterImpurePipe
+    SemesterFilterImpurePipe,
+    EctsFilterImpurePipe
   ],
   imports: [
     BrowserModule,

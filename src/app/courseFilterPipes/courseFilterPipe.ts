@@ -21,10 +21,6 @@ export class CourseFilterPipe implements PipeTransform {
                 course.courseName.toUpperCase().includes(filter.name.toUpperCase()));
         }
 
-        // if(filter.ects || filter.ects === 0) {
-        //     courses = courses.filter(course => course.ects === filter.ects)
-        // }
-
         return courses;
     }
 }

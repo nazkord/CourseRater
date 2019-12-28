@@ -12,7 +12,8 @@
         <label class="float-left pr-3">Search By ECTS:</label>
         <div class="form-check form-check-inline" *ngFor="let ects of filteredEctss; let i = index">
             <div *ngIf="ects">
-                <input class="form-check-input" type="checkbox" id="{{i}}"/>
+                <input class="form-check-input" type="checkbox" id="{{i}}" 
+                (change)="updateEcts(i, $event.target.checked)"/>
                 <label class="form-check-label" for="{{i}}">{{i}}</label>
             </div>
             <div *ngIf="!ects">
