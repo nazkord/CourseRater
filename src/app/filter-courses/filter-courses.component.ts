@@ -11,8 +11,8 @@ import { CourseService } from '../course-service/course-service.service';
 export class FilterCoursesComponent implements OnInit {
   filters: CourseFilter = {
     name: null,
-    ects: null,
-    semester: null
+    ects: new Array,
+    semester: new Array
   }
   private filteredEctss: boolean[];
   private filteredSemesters: boolean[];
@@ -37,5 +37,22 @@ export class FilterCoursesComponent implements OnInit {
   getEctss(): void {
     this.courseService.getFilteredEctss()
       .subscribe(filterEctss => this.filteredEctss = filterEctss);
+  }
+
+  updateSemester(semesterNumber:number, isChecked: boolean) {
+    let newFilters: CourseFilter = {
+      name: this.filters.name,
+      ects: this.filters.ects,
+      semester: this.filters.semester
+    }
+    if(isChecked) {
+      newFilters.semester.push(semesterNumber);
+    } else {
+      let index = newFilters.semester.indexOf(semesterNumber);
+      newFilters.semester.splice(index,1);
+    }
+    console.log("LOL2 " + newFilters.semester.length);
+    this.filters = newFilters;
+    this.sendFilters();
   }
 }

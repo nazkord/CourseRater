@@ -2,7 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core'
 import { Course } from '../model/course';
 import { CourseFilter } from './courseFilter';
 
-@Pipe({name: 'searchPipe'})
+@Pipe({
+    name: 'searchPipe'
+})
 export class CourseFilterPipe implements PipeTransform {
     transform(courses: Course[], filter: CourseFilter ) : Course[] {
 
@@ -19,9 +21,9 @@ export class CourseFilterPipe implements PipeTransform {
                 course.courseName.toUpperCase().includes(filter.name.toUpperCase()));
         }
 
-        if(filter.ects || filter.ects === 0) {
-            courses = courses.filter(course => course.ects === filter.ects)
-        }
+        // if(filter.ects || filter.ects === 0) {
+        //     courses = courses.filter(course => course.ects === filter.ects)
+        // }
 
         return courses;
     }

@@ -25,7 +25,8 @@
         <label class="float-left pr-3">Search By Semester:</label>
         <div class="form-check form-check-inline" *ngFor="let semester of filteredSemesters; let i = index">
             <div *ngIf="semester">
-                <input class="form-check-input" type="checkbox" id="{{i+1}}"/>
+                <input class="form-check-input" type="checkbox" id="{{i+1}}" 
+                (change)="updateSemester(i+1, $event.target.checked)"/>
                 <label class="form-check-label" for="{{i+1}}">{{i+1}}</label>
             </div>
             <div *ngIf="!semester">

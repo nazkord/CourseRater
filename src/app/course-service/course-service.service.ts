@@ -11,7 +11,6 @@ import { FilterService } from '../filter.service';
 })
 export class CourseService {
   private courses: Course[] = MockCourseData.Courses;
-  //TODO: make this with get methods
   private ectss: boolean[] = new Array;
   filterEctssSourse = new BehaviorSubject<boolean[]>(this.ectss);
   private semesters: boolean[] = new Array;
