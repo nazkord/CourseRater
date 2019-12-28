@@ -14,8 +14,8 @@ export class FilterCoursesComponent implements OnInit {
     ects: null,
     semester: null
   }
-  private filterEctss: boolean[];
-  private filterSemesters: boolean[];
+  private filteredEctss: boolean[];
+  private filteredSemesters: boolean[];
 
   constructor(private filterService: FilterService, private courseService: CourseService) { }
 
@@ -31,11 +31,11 @@ export class FilterCoursesComponent implements OnInit {
 
   getSemesters(): void {
     this.courseService.getFilteredSemesters()
-      .subscribe(filterSemesters => this.filterSemesters = filterSemesters);
+      .subscribe(filterSemesters => this.filteredSemesters = filterSemesters);
   }
 
   getEctss(): void {
     this.courseService.getFilteredEctss()
-      .subscribe(filterEctss => this.filterEctss = filterEctss);
+      .subscribe(filterEctss => this.filteredEctss = filterEctss);
   }
 }

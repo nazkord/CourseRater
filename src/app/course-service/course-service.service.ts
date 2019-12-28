@@ -17,20 +17,8 @@ export class CourseService {
   private semesters: boolean[] = new Array;
   filterSemestersSourse = new BehaviorSubject<boolean[]>(this.semesters);
 
-  getFilteredSemesters() : Observable<boolean[]> {
-    return new BehaviorSubject<boolean[]>(this.semesters).asObservable();
-  }
-
-  getFilteredEctss(): Observable<boolean[]> {
-    return new BehaviorSubject<boolean[]>(this.ectss).asObservable();
-  }
-
   constructor() {
-    for(let i = 0; i <= 15; i++) {
-      this.ectss[i] = false;
-      if(i<=10)
-        this.semesters[i] = false;
-    }
+    this.clearFilteredParameters();
     this.updateFilterParameters();
   }
 
@@ -55,12 +43,21 @@ export class CourseService {
     this.updateFilterParameters();
   }
 
+  clearFilteredParameters():void {
+    for(let i = 0; i <= 15; i++) {
+      this.ectss[i] = false;
+      if(i<10)
+        this.semesters[i] = false;
+    }
+  }
+
   updateFilterParameters(): void {
+    this.clearFilteredParameters();
     for(let i = 0; i < this.courses.length; i++){
       this.updateCourseParameteres(this.courses[i]);
     }
-    this.updateFilterEtcss(this.ectss);
-    this.updateFilterSemesters(this.semesters);
+    this.updateFilteredEtcss(this.ectss);
+    this.updateFilteredSemesters(this.semesters);
   }
 
   private updateCourseParameteres(course: Course): void {
@@ -68,11 +65,19 @@ export class CourseService {
     this.ectss[course.ects] = true;
   }
 
-  updateFilterSemesters(filterSemesters: boolean[]) {
+  getFilteredSemesters() : Observable<boolean[]> {
+    return new BehaviorSubject<boolean[]>(this.semesters).asObservable();
+  }
+
+  getFilteredEctss(): Observable<boolean[]> {
+    return new BehaviorSubject<boolean[]>(this.ectss).asObservable();
+  }
+
+  updateFilteredSemesters(filterSemesters: boolean[]) {
     this.filterSemestersSourse.next(filterSemesters);
   }
  
-  updateFilterEtcss(filterEtcss: boolean[]) {
-     this.filterEctssSourse.next(filterEtcss);
+  updateFilteredEtcss(filterEtcss: boolean[]) {
+    this.filterEctssSourse.next(filterEtcss);
   }
 }
