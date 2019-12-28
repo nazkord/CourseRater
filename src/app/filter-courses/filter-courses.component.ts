@@ -13,13 +13,27 @@ export class FilterCoursesComponent implements OnInit {
     ects: null,
     semester: null
   }
+  private filterEctss: boolean[];
+  private filterSemesters: boolean[];
 
   constructor(private filterService: FilterService) { }
 
   ngOnInit() {
+    this.getEctss();
+    this.getEctss();
   }
   
   sendFilters() : void {
     this.filterService.saveFilters(this.filters);
+  }
+
+  getSemesters(): void {
+    this.filterService.currentFilterSemesters
+      .subscribe(filterSemesters => this.filterSemesters = filterSemesters);
+  }
+
+  getEctss(): void {
+    this.filterService.currentFilterEtcss
+      .subscribe(filterEctss => this.filterEctss = filterEctss);
   }
 }

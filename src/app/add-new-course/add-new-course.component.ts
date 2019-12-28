@@ -38,14 +38,16 @@ export class AddNewCourseComponent implements OnInit {
       ),
       this.ects = new FormControl(
         '', [
-          Validators.required
+          Validators.required,
+          Validators.min(0),
+          Validators.max(15)
         ]
       ),
       this.semester = new FormControl(
         '', [
           Validators.required,
           Validators.min(1),
-          Validators.max(15)
+          Validators.max(10)
         ]
       ),
       this.maxNumberOfStudent = new FormControl(

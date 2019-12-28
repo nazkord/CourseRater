@@ -26,7 +26,7 @@
         }"
         placeholder="Enter the semester" class="form-control" type="number">
         <div class="invalid-feedback" *ngIf="semester.invalid && semester.dirty">
-                <p>The number should be beetwen 0 and 15</p>
+                <p>The number should be beetwen 1 and 10</p>
         </div>
     </div>
     <div class="form-group">
@@ -43,8 +43,8 @@
             'is-valid': courseForm.valid && courseForm.dirty,
             'is-invalid': courseForm.invalid && courseForm.dirty
         }"
-        class="form-control">
-                <option value="">Select form of the course:</option>
+        class="form-control custom-select">
+                <option selected>Select form of the course:</option>
                 <option *ngFor="let courseType of courseTypes">{{courseType}}</option>
         </select>
     </div>
