@@ -11,13 +11,22 @@ import { FilterService } from '../filter.service';
 })
 export class CourseService {
   private courses: Course[] = MockCourseData.Courses;
+  //TODO: make this with get methods
   private ectss: boolean[] = new Array;
   filterEctssSourse = new BehaviorSubject<boolean[]>(this.ectss);
   private semesters: boolean[] = new Array;
   filterSemestersSourse = new BehaviorSubject<boolean[]>(this.semesters);
 
+  getFilteredSemesters() : Observable<boolean[]> {
+    return new BehaviorSubject<boolean[]>(this.semesters).asObservable();
+  }
+
+  getFilteredEctss(): Observable<boolean[]> {
+    return new BehaviorSubject<boolean[]>(this.ectss).asObservable();
+  }
+
   constructor() {
-    for(let i = 0; i < 15; i++) {
+    for(let i = 0; i <= 15; i++) {
       this.ectss[i] = false;
       if(i<=10)
         this.semesters[i] = false;

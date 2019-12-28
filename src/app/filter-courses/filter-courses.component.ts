@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseFilter } from '../courseFilterPipes/courseFilter';
 import { FilterService } from '../filter.service';
+import { CourseService } from '../course-service/course-service.service';
 
 @Component({
   selector: 'app-filter-courses',
@@ -16,24 +17,25 @@ export class FilterCoursesComponent implements OnInit {
   private filterEctss: boolean[];
   private filterSemesters: boolean[];
 
-  constructor(private filterService: FilterService) { }
+  constructor(private filterService: FilterService, private courseService: CourseService) { }
 
   ngOnInit() {
     this.getEctss();
-    this.getEctss();
+    this.getSemesters();
   }
   
+  //UI logic for saving filters (ects, semesters)
   sendFilters() : void {
     this.filterService.saveFilters(this.filters);
   }
 
   getSemesters(): void {
-    this.filterService.currentFilterSemesters
+    this.courseService.getFilteredSemesters()
       .subscribe(filterSemesters => this.filterSemesters = filterSemesters);
   }
 
   getEctss(): void {
-    this.filterService.currentFilterEtcss
+    this.courseService.getFilteredEctss()
       .subscribe(filterEctss => this.filterEctss = filterEctss);
   }
 }

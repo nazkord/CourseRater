@@ -15,12 +15,25 @@
                 <input class="form-check-input" type="checkbox" id="{{i}}"/>
                 <label class="form-check-label" for="{{i}}">{{i}}</label>
             </div>
+            <div *ngIf="!ects">
+                    <input class="form-check-input" type="checkbox" id="{{i}}" disabled/>
+                    <label class="form-check-label" for="{{i}}">{{i}}</label>
+                </div>
         </div>
     </div>
     <div class="form-group">
+            <label class="float-left pr-3">Search By Semester:</label>
+            <div class="form-check form-check-inline" *ngFor="let semester of filterSemesters; let i = index">
+                <div *ngIf="semester">
+                    <input class="form-check-input" type="checkbox" id="{{i+1}}"/>
+                    <label class="form-check-label" for="{{i+1}}">{{i+1}}</label>
+                </div>
+            </div>
+        </div>
+    <!-- <div class="form-group">
         <label class="float-left">Search By Semester: {{filters.semester}}</label>
         <input type="range" class="form-control custom-range" min="1" max="10" step="1" 
             [(ngModel)]="filters.semester"  (input)="sendFilters()" />
-    </div>
+    </div> -->
 
 </div>
