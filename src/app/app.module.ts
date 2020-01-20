@@ -15,6 +15,7 @@ import { FilterCoursesComponent } from './filter-courses/filter-courses.componen
 import { CourseFilterImpurePipe } from './courseFilterPipes/CourseFilterImpurePipe';
 import { SemesterFilterImpurePipe } from './courseFilterPipes/semesterFilterImpurePipe';
 import { EctsFilterImpurePipe } from './courseFilterPipes/ectsFilterImpurePipe';
+import { CourseListFilterComponent } from './course-list-filter/course-list-filter.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { EctsFilterImpurePipe } from './courseFilterPipes/ectsFilterImpurePipe';
     FilterCoursesComponent,
     CourseFilterImpurePipe,
     SemesterFilterImpurePipe,
-    EctsFilterImpurePipe
+    EctsFilterImpurePipe,
+    CourseListFilterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,44 +1,46 @@
-<div class="m-3">
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search By Name" 
-            [(ngModel)]="filters.name" (input)="sendFilters()" />
-    </div>
-    <!-- <div class="form-group">
-        <label class="float-left">Search By ECTS: {{filters.ects}}</label>
-        <input type="range" class="form-control custom-range" min="0" max="15" step="1" 
-            [(ngModel)]="filters.ects"  (input)="sendFilters()" />
-    </div> -->
-    <div class="form-group">
-        <label class="float-left pr-3">Search By ECTS:</label>
-        <div class="form-check form-check-inline" *ngFor="let ects of filteredEctss; let i = index">
-            <div *ngIf="ects">
-                <input class="form-check-input" type="checkbox" id="{{i}}" 
-                (change)="updateEcts(i, $event.target.checked)"/>
-                <label class="form-check-label" for="{{i}}">{{i}}</label>
-            </div>
-            <div *ngIf="!ects">
-                    <input class="form-check-input" type="checkbox" id="{{i}}" disabled/>
+<div class="m-4">
+    <div class="col-8 offset-2">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search By Name" 
+                [(ngModel)]="filters.name" (input)="sendFilters()" />
+        </div>
+        <!-- <div class="form-group">
+            <label class="float-left">Search By ECTS: {{filters.ects}}</label>
+            <input type="range" class="form-control custom-range" min="0" max="15" step="1" 
+                [(ngModel)]="filters.ects"  (input)="sendFilters()" />
+        </div> -->
+        <div class="form-group">
+            <label class="float-left pr-3">Search By ECTS:</label>
+            <div class="form-check form-check-inline" *ngFor="let ects of filteredEctss; let i = index">
+                <div *ngIf="ects">
+                    <input class="form-check-input" type="checkbox" id="{{i}}" 
+                    (change)="updateEcts(i, $event.target.checked)"/>
                     <label class="form-check-label" for="{{i}}">{{i}}</label>
+                </div>
+                <div *ngIf="!ects">
+                        <input class="form-check-input" type="checkbox" id="{{i}}" disabled/>
+                        <label class="form-check-label" for="{{i}}">{{i}}</label>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label class="float-left pr-3">Search By Semester:</label>
-        <div class="form-check form-check-inline" *ngFor="let semester of filteredSemesters; let i = index">
-            <div *ngIf="semester">
-                <input class="form-check-input" type="checkbox" id="{{i+1}}" 
-                (change)="updateSemester(i+1, $event.target.checked)"/>
-                <label class="form-check-label" for="{{i+1}}">{{i+1}}</label>
-            </div>
-            <div *ngIf="!semester">
-                <input class="form-check-input" type="checkbox" id="{{i+1}}" disabled/>
-                <label class="form-check-label" for="{{i+1}}">{{i+1}}</label>
+        <div class="form-group">
+            <label class="float-left pr-3">Search By Semester:</label>
+            <div class="form-check form-check-inline" *ngFor="let semester of filteredSemesters; let i = index">
+                <div *ngIf="semester">
+                    <input class="form-check-input" type="checkbox" id="{{i+1}}" 
+                    (change)="updateSemester(i+1, $event.target.checked)"/>
+                    <label class="form-check-label" for="{{i+1}}">{{i+1}}</label>
+                </div>
+                <div *ngIf="!semester">
+                    <input class="form-check-input" type="checkbox" id="{{i+1}}" disabled/>
+                    <label class="form-check-label" for="{{i+1}}">{{i+1}}</label>
+                </div>
             </div>
         </div>
+        <!-- <div class="form-group">
+            <label class="float-left">Search By Semester: {{filters.semester}}</label>
+            <input type="range" class="form-control custom-range" min="1" max="10" step="1" 
+                [(ngModel)]="filters.semester"  (input)="sendFilters()" />
+        </div> -->
     </div>
-    <!-- <div class="form-group">
-        <label class="float-left">Search By Semester: {{filters.semester}}</label>
-        <input type="range" class="form-control custom-range" min="1" max="10" step="1" 
-            [(ngModel)]="filters.semester"  (input)="sendFilters()" />
-    </div> -->
 </div>

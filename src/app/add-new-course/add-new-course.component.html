@@ -1,78 +1,80 @@
-<form class="m-3" [formGroup]="formOfCourse" novalidate>
-    <div class="form-group">
-        <label class="float-left">Course name:</label>
-        <input class="form-control" [ngClass]="{
-            'is-valid':courseName.valid && courseName.dirty,
-            'is-invalid':courseName.invalid && courseName.dirty
-        }"
-        formControlName="courseName" placeholder="Enter the name of course" type="text">
-        <div class="invalid-feedback" *ngIf="courseName.invalid && courseName.dirty">
-            <p>Course name is required</p>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="float-left">ECTS: {{ects.value}}</label>
-        <input formControlName="ects" [ngClass]="{
-            'is-valid': ects.valid && ects.dirty,
-            'is-invalid': ects.invalid && ects.dirty
-        }"
-        type="range" class="form-control custom-range" min="0" max="15" step="1">
-    </div>
-    <div class="form-group">
-        <label class="float-left">Semester:</label>
-        <input formControlName="semester" [ngClass]="{
-            'is-valid': semester.valid && semester.dirty,
-            'is-invalid': semester.invalid && semester.dirty
-        }"
-        placeholder="Enter the semester" class="form-control" type="number">
-        <div class="invalid-feedback" *ngIf="semester.invalid && semester.dirty">
-                <p>The number should be beetwen 1 and 10</p>
-        </div>
-    </div>
-    <div class="form-group">
-        <label>Max number of students:</label>
-        <input formControlName="maxNumberOfStudent" [ngClass]="{
-            'is-valid': maxNumberOfStudent.valid && maxNumberOfStudent.dirty,
-            'is-invalid': maxNumberOfStudent.invalid && maxNumberOfStudent.dirty
-        }"
-        placeholder="Max Students" class="form-control" type="number">
-    </div>
-    <div class="form-group">
-        <label>Form of the course:</label>
-        <select formControlName="courseForm" [ngClass]="{
-            'is-valid': courseForm.valid && courseForm.dirty,
-            'is-invalid': courseForm.invalid && courseForm.dirty
-        }"
-        class="form-control custom-select">
-                <option selected>Select form of the course:</option>
-                <option *ngFor="let courseType of courseTypes">{{courseType}}</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label class="float-left">Description</label>
-        <textarea formControlName="description" [ngClass]="{
-            'is-valid': description.valid && description.dirty,
-            'is-invalid': description.invalid && description.dirty
-        }"
-        class="form-control" placeholder="Opis Kursu" ref-textarea rows="2" cols="20"></textarea>
-    </div>
-    <div class="form-group">
-        <label class="float-left">Logo's URL: </label>
-        <input formControlName="logoPath" [ngClass]="{
-            'is-valid': logoPath.valid && logoPath.dirty,
-            'is-invalid': logoPath.invalid && logoPath.dirty
-        }"
-        placeholder="Path the url of logo" class="form-control">
-        <div class="invalid-feedback" *ngIf="logoPath.errors && logoPath.dirty">
-                <p *ngIf="logoPath.errors.required">URL is required</p>
-                <p *ngIf="logoPath.errors.pattern">Bad URL</p>
-        </div>
-    </div>
-    <div class="submit">
-            <hr>
-            <a *ngIf="formOfCourse.valid" class="btn btn-secondary text-white" (click)="addCourse()">Save</a>
-            <div class="text-red" *ngIf="formOfCourse.invalid && formOfCourse.dirty">
-                    Check out your errors!
+<div class="m-3">
+    <form class="col-6 offset-3" [formGroup]="formOfCourse" novalidate>
+        <div class="form-group">
+            <label class="float-left">Course name:</label>
+            <input class="form-control" [ngClass]="{
+                'is-valid':courseName.valid && courseName.dirty,
+                'is-invalid':courseName.invalid && courseName.dirty
+            }"
+            formControlName="courseName" placeholder="Enter the name of course" type="text">
+            <div class="invalid-feedback" *ngIf="courseName.invalid && courseName.dirty">
+                <p>Course name is required</p>
             </div>
-    </div>
-</form>
+        </div>
+        <div class="form-group">
+            <label class="float-left">ECTS: {{ects.value}}</label>
+            <input formControlName="ects" [ngClass]="{
+                'is-valid': ects.valid && ects.dirty,
+                'is-invalid': ects.invalid && ects.dirty
+            }"
+            type="range" class="form-control custom-range" min="0" max="15" step="1">
+        </div>
+        <div class="form-group">
+            <label class="float-left">Semester:</label>
+            <input formControlName="semester" [ngClass]="{
+                'is-valid': semester.valid && semester.dirty,
+                'is-invalid': semester.invalid && semester.dirty
+            }"
+            placeholder="Enter the semester" class="form-control" type="number">
+            <div class="invalid-feedback" *ngIf="semester.invalid && semester.dirty">
+                    <p>The number should be beetwen 1 and 10</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Max number of students:</label>
+            <input formControlName="maxNumberOfStudent" [ngClass]="{
+                'is-valid': maxNumberOfStudent.valid && maxNumberOfStudent.dirty,
+                'is-invalid': maxNumberOfStudent.invalid && maxNumberOfStudent.dirty
+            }"
+            placeholder="Max Students" class="form-control" type="number">
+        </div>
+        <div class="form-group">
+            <label>Form of the course:</label>
+            <select formControlName="courseForm" [ngClass]="{
+                'is-valid': courseForm.valid && courseForm.dirty,
+                'is-invalid': courseForm.invalid && courseForm.dirty
+            }"
+            class="form-control custom-select">
+                    <option selected>Select form of the course:</option>
+                    <option *ngFor="let courseType of courseTypes">{{courseType}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="float-left">Description</label>
+            <textarea formControlName="description" [ngClass]="{
+                'is-valid': description.valid && description.dirty,
+                'is-invalid': description.invalid && description.dirty
+            }"
+            class="form-control" placeholder="Opis Kursu" ref-textarea rows="2" cols="20"></textarea>
+        </div>
+        <div class="form-group">
+            <label class="float-left">Logo's URL: </label>
+            <input formControlName="logoPath" [ngClass]="{
+                'is-valid': logoPath.valid && logoPath.dirty,
+                'is-invalid': logoPath.invalid && logoPath.dirty
+            }"
+            placeholder="Path the url of logo" class="form-control">
+            <div class="invalid-feedback" *ngIf="logoPath.errors && logoPath.dirty">
+                    <p *ngIf="logoPath.errors.required">URL is required</p>
+                    <p *ngIf="logoPath.errors.pattern">Bad URL</p>
+            </div>
+        </div>
+        <div class="submit">
+                <hr>
+                <a *ngIf="formOfCourse.valid" class="btn btn-success text-white" (click)="addCourse()">Save</a>
+                <div class="text-red" *ngIf="formOfCourse.invalid && formOfCourse.dirty">
+                        Check out your errors!
+                </div>
+        </div>
+    </form>
+</div>

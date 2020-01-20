@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { Course } from '../model/course';
 import { EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-course-item',
@@ -9,12 +10,10 @@ import { EventEmitter } from '@angular/core';
 })
 export class CourseItemComponent implements OnInit {
 
-  isClicked: boolean = false;
-
   @Input() course : Course;
   @Output() deleteCourseClicked = new EventEmitter<Course>();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -23,7 +22,7 @@ export class CourseItemComponent implements OnInit {
     this.deleteCourseClicked.emit(this.course);
   }
 
-  showHideDetails() {
-    this.isClicked = !this.isClicked;
+  showDetails() {
+    this.router.navigate(['/course-details', this.course.id])
   }
 }
