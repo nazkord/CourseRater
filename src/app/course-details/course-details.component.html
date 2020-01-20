@@ -1,5 +1,14 @@
-<ul>
-    <li>    
+<div card class="mt-4 card text-center col-6 offset-3">
+    <img src="{{course.logoPath}}" class="img-responsive rounded mx-auto d-block" width="200" alt="Card image cap"/>
+    <h1>{{course.courseName}}</h1>
+    <div>
+        <h5 class="card-text notbold">{{course.description}}</h5>
+        <p class="card-text">The subject is tought in {{course.semester}} semester</p>
+        <p class="card-text">The maximum number of participants is: {{course.maxNumberOfStudent}} </p>
+        <p class="card-text">Number of ETCS: {{course.ects}}</p>
+        <p ratemessage class="card-text">Course rate:</p>
+    </div>
+    <div>
         <ngb-rating [rate]="courseRating()" max="5">
             <ng-template let-fill="fill">
                 <span class="star" [class.full]="fill === 100">
@@ -8,10 +17,8 @@
                 </span>
             </ng-template>
         </ngb-rating>
-    </li>
-    <li>ETCS: {{course.ects}}</li>
-    <li>Semester: {{course.semester}}</li>
-    <li>Max: {{course.maxNumberOfStudent}}</li>
-    <li>Description: {{course.description}}</li>
-    <button class="btn btn-danger m-2" (click)="deleteCourse()"> Delete</button>
-</ul>
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-danger" (click)="deleteCourse()"> Delete</button>
+    </div>
+</div>
