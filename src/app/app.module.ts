@@ -16,6 +16,12 @@ import { CourseFilterImpurePipe } from './courseFilterPipes/CourseFilterImpurePi
 import { SemesterFilterImpurePipe } from './courseFilterPipes/semesterFilterImpurePipe';
 import { EctsFilterImpurePipe } from './courseFilterPipes/ectsFilterImpurePipe';
 import { CourseListFilterComponent } from './course-list-filter/course-list-filter.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +43,11 @@ import { CourseListFilterComponent } from './course-list-filter/course-list-filt
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
