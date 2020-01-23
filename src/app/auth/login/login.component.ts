@@ -1,15 +1,49 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalUser } from 'src/app/model/user';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  user: LocalUser = {
+    id: null,
+    email: null,
+    password: null
+  };
+  authError: any;
+  authSuccess: any;
+
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
 
+  logUser() {
+    this.authService.signInUser(this.user)
+      .then(() => {
+        this.router.navigate(['/course-list-filter']);
+      })
+      .catch(error => {
+        this.authSuccess = null;
+        this.authError = error;
+      })
+  }
+
+  registerUser() {
+    this.authService.signUpUser(this.user)
+      .then(() => {
+        this.authSuccess = "Account created. Please sign in";
+      })
+      .catch(error => {
+        this.authSuccess = null;
+        this.authError = error;
+    })
+}
 }

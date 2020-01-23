@@ -4,16 +4,26 @@ import { CourseDetailsComponent } from './course-details/course-details.componen
 import { CourseListFilterComponent } from './course-list-filter/course-list-filter.component';
 import { AddNewCourseComponent } from './add-new-course/add-new-course.component';
 import { LoginComponent } from './auth/login/login.component';
-import { RegistrationComponent } from './auth/registration/registration.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'course-list-filter', pathMatch: 'full' },
-  { path: 'course-list-filter', component: CourseListFilterComponent},
-  { path: 'course-details/:id', component: CourseDetailsComponent },
-  { path: 'add-course', component: AddNewCourseComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegistrationComponent }
+  { 
+    path: 'course-list-filter',
+    component: CourseListFilterComponent
+  },
+  { 
+    path: 'course-details/:id',
+    component: CourseDetailsComponent
+  },
+  { 
+    path: 'add-course',
+    component: AddNewCourseComponent
+  },
+  { 
+    path: 'login',
+    component: LoginComponent
+  }
 ];
 
 @NgModule({

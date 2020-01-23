@@ -22,7 +22,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { LoginComponent } from './auth/login/login.component';
-import { RegistrationComponent } from './auth/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -37,8 +36,7 @@ import { RegistrationComponent } from './auth/registration/registration.componen
     SemesterFilterImpurePipe,
     EctsFilterImpurePipe,
     CourseListFilterComponent,
-    LoginComponent,
-    RegistrationComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
