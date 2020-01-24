@@ -3,6 +3,7 @@ import { LocalUser } from 'src/app/model/user';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { User } from 'firebase';
 
 @Component({
   selector: 'app-login',
@@ -18,12 +19,24 @@ export class LoginComponent implements OnInit {
     password: null
   };
   authError: any;
-  authSuccess: any;
+  authSuccess: string;
 
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+    // this.getAuthState();
   }
+
+  // getAuthState() {
+  //   this.authService.getAuthState()
+  //     .subscribe(auth => {
+  //       if(!auth) {
+  //         this.authSuccess = "Logged out";
+  //         alert("Wylogowano");
+  //       } else {
+  //       }
+  //   });
+  // }
 
   logUser() {
     this.authService.signInUser(this.user)
@@ -33,7 +46,7 @@ export class LoginComponent implements OnInit {
       .catch(error => {
         this.authSuccess = null;
         this.authError = error;
-      })
+    });
   }
 
   registerUser() {

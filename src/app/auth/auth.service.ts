@@ -26,4 +26,12 @@ export class AuthService {
   logout() {
     return this.afAuth.auth.signOut();
   }
+
+  getAuthState() : Observable<User> {
+    return this.authState$;
+  }
+
+  getCurrentUser() : User {
+    return this.afAuth.auth.currentUser;
+  }
 }
