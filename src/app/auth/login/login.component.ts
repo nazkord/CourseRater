@@ -24,19 +24,8 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    // this.getAuthState();
-  }
 
-  // getAuthState() {
-  //   this.authService.getAuthState()
-  //     .subscribe(auth => {
-  //       if(!auth) {
-  //         this.authSuccess = "Logged out";
-  //         alert("Wylogowano");
-  //       } else {
-  //       }
-  //   });
-  // }
+  }
 
   logUser() {
     this.authService.signInUser(this.user)

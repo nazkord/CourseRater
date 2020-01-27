@@ -4,10 +4,10 @@ import { CourseDetailsComponent } from './course-details/course-details.componen
 import { CourseListFilterComponent } from './course-list-filter/course-list-filter.component';
 import { AddNewCourseComponent } from './add-new-course/add-new-course.component';
 import { LoginComponent } from './auth/login/login.component';
-
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'course-list-filter', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { 
     path: 'course-list-filter',
     component: CourseListFilterComponent
@@ -18,7 +18,8 @@ const routes: Routes = [
   },
   { 
     path: 'add-course',
-    component: AddNewCourseComponent
+    component: AddNewCourseComponent,
+    canActivate: [AuthGuard]
   },
   { 
     path: 'login',

@@ -7,6 +7,7 @@ import { User } from 'firebase';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
 
   authState$: Observable<User>; 

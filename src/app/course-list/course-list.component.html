@@ -3,7 +3,6 @@
         *ngFor = "let course of (courses | searchPipeImpure : filters
                                         | filterBySemesterImpure : filters?.semester
                                         | filterByEctsImpure : filters?.ects)" 
-        [course] = "course" 
-        (deleteCourseClicked) = "removeCourse($event)" >
+        [course] = "course" >
     </app-course-item>
 </div>

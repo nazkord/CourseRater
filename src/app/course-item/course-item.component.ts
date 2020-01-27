@@ -11,18 +11,13 @@ import { Router } from '@angular/router';
 export class CourseItemComponent implements OnInit {
 
   @Input() course : Course;
-  @Output() deleteCourseClicked = new EventEmitter<Course>();
 
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  deleteCourse() {
-    this.deleteCourseClicked.emit(this.course);
-  }
-
   showDetails() {
-    this.router.navigate(['/course-details', this.course.id])
+    this.router.navigate(['/course-details', this.course.id]);
   }
 }

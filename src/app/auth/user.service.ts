@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { LocalUser } from '../model/user';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private db: AngularFirestore) { }
+  constructor(private authService: AuthService) { }
 
-  insertLocalUser(userCredential: firebase.auth.UserCredential, newUser: LocalUser) {
-    return this.db.doc(`Users/${userCredential.user.uid}`).set({
-      email: newUser.email,
-      password: newUser.password,
-      role: 'user'
-    });
+  isAdmin() : boolean {
+    if(this.authService.getCurrentUser() && this.authService.getCurrentUser().email === 'admin@agh.edu.pl') {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

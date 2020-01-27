@@ -19,6 +19,6 @@
         </ngb-rating>
     </div>
     <div class="mb-3">
-        <button class="btn btn-danger" (click)="deleteCourse()"> Delete</button>
+        <button *ngIf="this.userService.isAdmin()" class="btn btn-danger" (click)="deleteCourse()"> Delete</button>
     </div>
 </div>
