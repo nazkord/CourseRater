@@ -9,7 +9,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
-import { AddNewCourseComponent } from './add-new-course/add-new-course.component';
+import { AddNewCourseComponent } from './admin/add-new-course/add-new-course.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterCoursesComponent } from './filter-courses/filter-courses.component';
 import { CourseFilterImpurePipe } from './courseFilterPipes/CourseFilterImpurePipe';
@@ -22,6 +22,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { LoginComponent } from './auth/login/login.component';
+import { RemoveCourseComponent } from './admin/remove-course/remove-course.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { LoginComponent } from './auth/login/login.component';
     SemesterFilterImpurePipe,
     EctsFilterImpurePipe,
     CourseListFilterComponent,
-    LoginComponent
+    LoginComponent,
+    RemoveCourseComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Course, ClassForm } from '../model/course';
-import { CourseService } from '../course-service/course-service.service';
+import { Course, ClassForm } from '../../model/course';
+import { CourseService } from '../../course-service/course-service.service';
 
 @Component({
   selector: 'app-add-new-course',
